@@ -1,18 +1,14 @@
 import org.w3c.dom.ls.LSOutput;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Sorts {
     public static void bubbleSort(int[] array) {
         boolean isSorted = false;
         int buffer = 0;
-        System.out.println("Bubble sorting start");
         while (!isSorted) {
             isSorted = true;
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i]+" ");
-            }
-            System.out.println("");
             for (int i = 0; i < array.length-1; i++) {
                 if(array[i] > array[i+1]) {
                     isSorted = false;
@@ -22,7 +18,6 @@ public class Sorts {
                 }
             }
         }
-        System.out.println("Bubble sorting end");
     }
     public static int[] merge(int[] arr1, int[] arr2) {
         int  length1 = arr1.length, length2 = arr2.length;
@@ -47,9 +42,20 @@ public class Sorts {
         return merge(mergeSort(Arrays.copyOfRange(array, 0, middle)),
                 mergeSort(Arrays.copyOfRange(array, middle, length)));
     }
+    public static void insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            System.out.println(Arrays.toString(array));
+            int current = array[i];
+            int j = i - 1;
+            while(j >= 0 && current < array[j]) {
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = current;
+        }
+    }
 
     public static void main(String[] args) {
-
 
     }
 }
